@@ -17,37 +17,47 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme toggle */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    width: 100%;
 }
 
 /* Container for content centering */
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 15px;
+    text-align: center;
+    overflow: visible; /* Ensure no clipping */
 }
 
 /* Header styles */
 header {
-    background-color: var(--primary-color);
-    color: white;
+    width: 100vw;  /* Full viewport width */
     text-align: center;
-    padding: 2rem 0;
-    padding-top: 3rem;
-    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    /* Fix the left gap by using negative margin */
+    margin-left: calc((100% - 100vw) / 2);
+    margin-right: calc((100% - 100vw) / 2);
+    padding: 20px 0;
 }
 
 /* Profile image styles */
 .profile-image {
-    width: min(200px, 50vw);  /* Use the smaller of 200px or 50% viewport width */
-    height: min(200px, 50vw);
+    width: 150px;  /* Smaller base size for mobile */
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid white;
     transition: transform 0.8s ease;
-    padding: 5px;
-    margin: 10px;
+    padding: 3px;
+    margin: 10px auto; /* Center the image */
     box-sizing: border-box;
+    display: block; /* Ensures proper centering */
 }
 
 /* Ensure header h1 (name) is always white */
@@ -63,7 +73,8 @@ main {
 
 /* Section spacing */
 section {
-    margin-bottom: 3rem;
+    padding: 20px 0;
+    margin: 10px 0;
 }
 
 /* Heading styles */
@@ -87,20 +98,32 @@ h1, h2 {
     border-radius: 5px;
 }
 
-/* Projects grid layout */
-#projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+/* Projects section styling */
+#projects {
+    width: 100%;
     padding: 20px 0;
 }
 
-/* Individual project card styles */
+#projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .project-card {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: var(--card-bg);
-    border-radius: 5px;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
 }
 
 /* Footer styles */
@@ -182,11 +205,13 @@ html {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
+    margin: 10px 0;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    margin: 15px 0;
 }
 
 /* Profile image responsive sizing */
@@ -204,21 +229,25 @@ h2 {
 
 /* Role description responsive text */
 #role-description {
-    font-size: 1.2rem;
-    padding: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 1rem;
+    margin: 10px 0;
+    white-space: nowrap; /* Prevents wrapping */
 }
 
 .role {
     display: inline-block;
-    margin: 0 5px;
 }
 
 /* Projects grid responsive layout */
 #projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px 0;
+    grid-template-columns: 1fr;  /* Single column on mobile */
+    gap: 15px;
+    padding: 10px;
 }
 
 /* Theme toggle button positioning */
@@ -315,5 +344,198 @@ html {
     
     #theme-toggle {
         padding: 15px; /* Larger touch target */
+    }
+}
+
+/* Base mobile-first styles */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Profile image adjustments */
+.profile-image {
+    width: 150px;  /* Smaller base size for mobile */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    transition: transform 0.8s ease;
+    padding: 3px;
+    margin: 10px auto; /* Center the image */
+    box-sizing: border-box;
+    display: block; /* Ensures proper centering */
+}
+
+/* Role description mobile styling */
+#role-description {
+    font-size: 1rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.role {
+    display: block;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* Section spacing */
+section {
+    padding: 20px 0;
+    margin: 10px 0;
+}
+
+/* Projects grid for mobile */
+#projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;  /* Single column on mobile */
+    gap: 15px;
+    padding: 10px;
+}
+
+.project-card {
+    padding: 15px;
+    margin: 5px 0;
+}
+
+/* Header adjustments */
+header {
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 1.8rem;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 15px 0;
+}
+
+/* Adjust animation scales for mobile */
+@media screen and (max-width: 480px) {
+    .scroll-animate {
+        transform-origin: center;
+    }
+    
+    .scroll-animate:hover, 
+    .scroll-animate.active {
+        transform: scale(1.05) !important;
+    }
+
+    /* Reduce header padding */
+    header {
+        padding: 10px 0;
+    }
+
+    /* Adjust role spacing */
+    .role {
+        padding: 5px 0;
+    }
+
+    /* Make sure text doesn't overflow */
+    p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    /* Adjust project cards */
+    .project-card {
+        font-size: 0.9rem;
+    }
+
+    /* Navigation adjustments if you have any */
+    nav {
+        padding: 5px;
+    }
+}
+
+/* Medium screens */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .profile-image {
+        width: 180px;
+        height: 180px;
+    }
+
+    #projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Larger screens */
+@media screen and (min-width: 769px) {
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    #projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    #role-description {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .role {
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .role, .scroll-animate {
+        transition: transform 0.2s ease;
+    }
+
+    .role:active {
+        transform: scale(1.1);
+    }
+}
+
+/* Ensure content doesn't overflow */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Better spacing for content */
+.container > * {
+    margin-bottom: 15px;
+}
+
+/* Fix text clipping */
+h1, h2, h3 {
+    text-align: center;
+    width: 100%;
+    /* Add padding to prevent text clipping */
+    padding: 10px 0;
+    /* Ensure there's space around the text */
+    margin: 10px 0;
+    /* Prevent line height from clipping */
+    line-height: 1.2;
+}
+
+/* Ensure proper text rendering */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 480px) {
+    #role-description {
+        font-size: 0.8rem; /* Smaller text on mobile */
+        gap: 3px;
     }
 }

@@ -1,0 +1,163 @@
+/* Define color variables for easy theme switching */
+:root {
+    --bg-color: #f4f4f4;      /* Light gray background */
+    --text-color: #333;       /* Dark gray text */
+    --primary-color: #3498db; /* Blue accent color */
+    --secondary-color: #2c3e50; /* Dark blue-gray */
+    --accent-color: #e74c3c;    /* Red accent (unused in this version) */
+    --card-bg: white;           /* White background for cards */
+}
+
+/* Base body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme toggle */
+}
+
+/* Container for content centering */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Header styles */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Profile image styles */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+/* Ensure header h1 (name) is always white */
+header h1 {
+    color: white;
+    margin-top: 1rem;
+}
+
+/* Main content area styles */
+main {
+    padding: 2rem 0;
+}
+
+/* Section spacing */
+section {
+    margin-bottom: 3rem;
+}
+
+/* Heading styles */
+h1, h2 {
+    color: var(--primary-color);
+}
+
+/* Skills list styles */
+#skills-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#skills-list li {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+}
+
+/* Projects grid layout */
+#projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Individual project card styles */
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer styles */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Theme toggle button styles */
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    --bg-color: #1a1a1a;        /* Dark background */
+    --text-color: #f4f4f4;      /* Light text */
+    --primary-color: #3498db;   /* Keep blue accent */
+    --secondary-color: #2c3e50; /* Dark blue-gray */
+    --accent-color: #e74c3c;    /* Keep red accent (unused) */
+    --card-bg: #2c3e50;         /* Darker background for cards */
+}
+
+/* Ensure headings remain blue in dark mode */
+body.dark-mode h1,
+body.dark-mode h2 {
+    color: var(--primary-color);
+}
+
+/* Keep header background blue in dark mode */
+body.dark-mode header {
+    background-color: var(--primary-color);
+}
+
+/* Ensure header h1 (name) remains white in dark mode */
+body.dark-mode header h1 {
+    color: white;
+}
+
+/* Adjust project card colors for dark mode */
+body.dark-mode .project-card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+/* Change theme toggle button color in dark mode */
+body.dark-mode #theme-toggle {
+    background-color: var(--secondary-color);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Increase container width on small screens */
+    }
+}
